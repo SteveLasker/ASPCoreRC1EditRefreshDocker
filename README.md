@@ -40,7 +40,7 @@ Here's my demo script:
 		b. Env vars still missing
 	6. Add the env files from the _artifacts folder
 	7. Edit docker-compose.debug.yml
-		a. Add env_file: envDevelopment.list
+		a. Add env_file: envDevelopment.list
 	8. F5
 		a. Notice how much faster debugging starts as the docker image cache builds 
 	9. Click About
@@ -59,8 +59,8 @@ Here's my demo script:
 	14. Let's move to Release mode and test things out
 		a. Change to Release 
 	15. Edit docker-compose.release.yml
-		a. Add env_file: envDevelopment.list
-		b. Notice our env is still development. We're separating behavior (debug/release) from the physical environment
+		a. Add env_file: envDevelopment.list
+		b. Notice our env is still development. We're separating behavior (debug/release) from the physical environment
 		c. We'll plug in the staging & production physical environment values in a moment
 	16. F5
 		a. Open About
