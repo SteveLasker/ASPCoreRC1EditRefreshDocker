@@ -99,11 +99,18 @@ Here's my demo script:
 		docker-compose -f docker-compose.production.yml up -d
 
 ## List of commands ##
+
 env_file: envDevelopment.list
+
 docker-compose -f docker-compose.integration.yml up -d
+
 Docker images - to get the image_id
+
 docker tag [image_id] stevelasker/dockerenvdemo:latest
+
 docker push stevelasker/dockerenvdemo:latest
+
 docker-compose -f docker-compose.staging.yml up -d
+
 docker-compose -f docker-compose.production.yml up -d
 
