@@ -1,0 +1,9 @@
+dockerenvdemo:
+  container_name: dockerdemo_release
+  dockerfile: Dockerfile.release
+  build: .
+  ports:
+    - "8080:5000"
+  env_file: envIntegration.list
+  environment:
+    - SERVER.URLS=http://*:5000

@@ -1,0 +1,6 @@
+dockerenvdemo:
+  container_name: dockerdemo_staging
+  image: stevelasker/dockerenvdemo:latest
+  ports:
+    - "8080:5000"
+  env_file: envStaging.list

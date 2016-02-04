@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!-- Use this property to turn building the docker image as part of VS build on and off -->
+    <DockerBuild Condition=" '$(DockerBuild)'=='' ">True</DockerBuild>
+    <!-- Use this property to change the docker host that is used by this project (Note: you need to restart VS after changing this property) -->
+    <DockerMachineName Condition=" '$(DockerMachineName)'=='' ">default</DockerMachineName>
+  </PropertyGroup>
+</Project>

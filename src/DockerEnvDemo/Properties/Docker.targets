@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <NoDockerCache>False</NoDockerCache>
+  </PropertyGroup>
+
+  <Target Name="DockerBuild" Condition="'$(DockerBuild)'=='True'" AfterTargets="Build">
+    <PropertyGroup>
+      <DockerBuildCommand>powershell -ExecutionPolicy RemoteSigned .\DockerTask.ps1 -Build -Environment $(Configuration) -Machine $(DockerMachineName)</DockerBuildCommand>
+      <DockerBuildCommand Condition="'$(NoDockerCache)'=='True'">$(DockerBuildCommand) -NoCache</DockerBuildCommand>
+    </PropertyGroup>
+    <Exec
+      WorkingDirectory="$(MSBuildProjectDirectory)"
+      Command="$(DockerBuildCommand)" />
+  </Target>
+
+  <Target Name="DockerClean" Condition="'$(DockerBuild)'=='True'" AfterTargets="Clean">
+    <Exec
+      WorkingDirectory="$(MSBuildProjectDirectory)"
+      Command="powershell -ExecutionPolicy RemoteSigned .\DockerTask.ps1 -Clean -Environment $(Configuration) -Machine $(DockerMachineName)" />
+  </Target>
+
+  <Target Name="DockerBeforeRebuild" Condition="'$(DockerBuild)'=='True'" BeforeTargets="BeforeRebuild">
+    <PropertyGroup>
+      <NoDockerCache>True</NoDockerCache>
+    </PropertyGroup>
+  </Target>
+</Project>

@@ -1,0 +1,6 @@
+# Per-user files for the project
+*.user
+
+# Generated DNX files
+project.lock.json
+artifacts/
