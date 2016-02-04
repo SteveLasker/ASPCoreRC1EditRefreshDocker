@@ -1,11 +1,11 @@
 # ASPCoreRC1EditRefreshDocker
-Sample project used for the [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS/) release 11 (not yet released, please stand by)
+Sample project used for the [Docker Tools for Visual Studio](http://aka.ms/DockerToolsForVS/) release 0.10 (not yet released, please stand by)
 
 *While the Edit & Refresh version of the Docker Tools isn't yet released, this project will work with ASP.NET 5/Core RC1*
 
 Sample for Debugging (Edit &amp; Refresh) an ASP.NET 5 Core App in a Linux Docker Container
  
-** Demonstrates:**
+**Demonstrates:**
 - Edit & Refresh of ASP.NET Core app
 - Use of Docker Containers, Docker-compose
 - Multi environemnt configuration using Docker Environment files
