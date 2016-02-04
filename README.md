@@ -56,50 +56,49 @@ Here's my demo script:
 		a. Add <p>some new text</p> and save the file
 	13. Refresh the browser
 		a. Notice our content is now updated (you'll need a few seconds as the DNX Watch polls for changes)
-	13. Let's move to Release mode and test things out
+	14. Let's move to Release mode and test things out
 		a. Change to Release 
-	14. Edit docker-compose.release.yml
-		a. Addenv_file: envDevelopment.list
-		b. Notice our env is still developmentWe're separating behavior (debug/release) from the physical environment
+	15. Edit docker-compose.release.yml
+		a. Add env_file: envDevelopment.list
+		b. Notice our env is still development. We're separating behavior (debug/release) from the physical environment
 		c. We'll plug in the staging & production physical environment values in a moment
-	15. F5
+	16. F5
 		a. Open About
 		b. Notice we're still using our development environment physical connections
 		c. Open Contacts - see the cleaned up errors, which actually have a formatting issue. We've caught a release behavior issue we didn't see when running locally
-	16. Switch to deploying
+	17. Switch to deploying
 		a. Imagine we've checked in the code
 		b. The build system will kick in
 		c. What does our build system do?
 		d. It builds the image as we did locally in release mode
 		e. Lets demo this
-	17. Compose up the integration environment
+	18. Compose up the integration environment
     	docker-compose -f docker-compose.integration.yml up -d
-	18. Browse to the page
+	19. Browse to the page
 		a. This is our build system, so we don't just launch the browser automatically
 		b. http://192.168.99.100:8080/Home/About (Note: docker-machine ip $(docker-machine active) to get the IP of your host
 		c. Notice our URLs are INT
-	19. Our "automated tests" pass
+	20. Our "automated tests" pass
 		a. Imagine our automation has passed, lets label the image and push it to our registry
 		Docker images - to get the image_id
 		docker tag [image_id] stevelasker/dockerenvdemo:latest
 		b. Push the image to our registry
 		docker push stevelasker/dockerenvdemo:latest
 		c. This will actually fail as we haven't logged in, we'll skip the actual push to save time
-	20. Deploy to Staging
+	21. Deploy to Staging
 		a. This represents our next environment
 		b. Open the docker-compose.staging.yml file
 		c. In this case, we don't want to rebuild the image. We know the image is fully tested
 		d. We want to simply instance the image, with the environment info
-	21. Open docker-compose.staging.yml
+	22. Open docker-compose.staging.yml
 		a. Notice we're now referencing an image, not a dockerfile
 		b. Notice the env_file for the location specific content
-	22. Spin up the staging environment
-	docker-compose -f docker-compose.staging.yml up -d
-	23. Spin up the production environment
-	docker-compose -f docker-compose.production.yml up -d
+	23. Spin up the staging environment
+		docker-compose -f docker-compose.staging.yml up -d
+	24. Spin up the production environment
+		docker-compose -f docker-compose.production.yml up -d
 
 ## List of commands ##
-**
 env_file: envDevelopment.list
 docker-compose -f docker-compose.integration.yml up -d
 Docker images - to get the image_id
@@ -107,5 +106,4 @@ docker tag [image_id] stevelasker/dockerenvdemo:latest
 docker push stevelasker/dockerenvdemo:latest
 docker-compose -f docker-compose.staging.yml up -d
 docker-compose -f docker-compose.production.yml up -d
-**
 
