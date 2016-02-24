@@ -23,7 +23,7 @@
     },
     "Docker": {
       "executablePath": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-      "commandLineArgs": "-noexit -ExecutionPolicy RemoteSigned .\\DockerTask.ps1 -Run -Environment $(Configuration) -Machine $(DockerMachineName) -ProjectFolder ."
+      "commandLineArgs": "-ExecutionPolicy RemoteSigned .\\Docker\\DockerTask.ps1 -Run -Environment $(Configuration) -Machine $(DockerMachineName) -ProjectFolder ."
     }
   }
 }
