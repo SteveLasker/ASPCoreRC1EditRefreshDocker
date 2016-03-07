@@ -5,6 +5,8 @@ Param(
     [switch]$Clean,
     [Parameter(ParameterSetName = "Run", Mandatory = $True)]
     [switch]$Run,
+    [Parameter(ParameterSetName = "Push", Mandatory = $True)]
+    [switch]$Push,
     [parameter(ParameterSetName = "Clean", Position = 1, Mandatory = $True)]
     [parameter(ParameterSetName = "Build", Position = 1, Mandatory = $True)]
     [parameter(ParameterSetName = "Run", Position = 1, Mandatory = $True)]
@@ -13,18 +15,30 @@ Param(
     [parameter(ParameterSetName = "Clean", Position = 2, Mandatory = $True)]
     [parameter(ParameterSetName = "Build", Position = 2, Mandatory = $True)]
     [parameter(ParameterSetName = "Run", Position = 2, Mandatory = $True)]
+    [parameter(ParameterSetName = "Push", Position = 1, Mandatory = $True)]
     [ValidateNotNullOrEmpty()]
     [String]$Machine,
     [parameter(ParameterSetName = "Clean", Position = 3, Mandatory = $False)]
     [parameter(ParameterSetName = "Build", Position = 3, Mandatory = $False)]
     [parameter(ParameterSetName = "Run", Position = 3, Mandatory = $False)]
+    [parameter(ParameterSetName = "Push", Position = 2, Mandatory = $False)]
     [ValidateNotNullOrEmpty()]
     [String]$ProjectFolder = "$(Get-Location)",
     [parameter(ParameterSetName = "Build", Position = 4, Mandatory = $False)]
     [switch]$NoCache,
     [parameter(ParameterSetName = "Run", Position = 4, Mandatory = $False)]
     [ValidateNotNullOrEmpty()]
-    [String]$Port = 5000
+    [String]$Port = 5000,
+    [parameter(ParameterSetName = "Push", Position = 3, Mandatory = $True)]
+    [ValidateNotNullOrEmpty()]
+    [String]$UserName,
+    [parameter(ParameterSetName = "Push", Position = 4, Mandatory = $True)]
+    [ValidateNotNullOrEmpty()]
+    [String]$EMail,
+    [parameter(ParameterSetName = "Push", Position = 5, Mandatory = $True)]
+    [ValidateNotNullOrEmpty()]
+  # This should be a secure string...
+    [String]$Password
 )
 
 $ErrorActionPreference = "Stop"
@@ -87,6 +101,22 @@ function Build () {
     else {
         Write-Error -Message "$Environment is not a valid parameter. File '$composeFileName' does not exist." -Category InvalidArgument
     }
+}
+
+# Runs docker push.
+function Push () {
+      cmd /c docker tag $ImageName stevelasker/devinacontainer
+      if($? -eq $False) {
+          Write-Error "Failed to tag the image"
+      }
+      cmd /c docker login -e $EMail -u $UserName -p $Password
+      if($? -eq $False) {
+          Write-Error "Failed to log in"
+      }
+      cmd /c docker push stevelasker/devinacontainer
+      if($? -eq $False) {
+          Write-Error "Failed to log in"
+      }
 }
 
 # Runs docker run
@@ -175,4 +205,7 @@ if($Build) {
 }
 if($Run) {
     Run
+}
+if($Push) {
+    Push
 }
