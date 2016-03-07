@@ -1,4 +1,0 @@
-﻿
-ImageStorageContainer=https://dockerenvdemo-STAG.blog.core.windows.net/images
-AuthDatabase=Server=tcp:dockerenvdemo-STAG.database.windows.net,1433;Database=dockerenvauthdb;User ID=someid@somelocal;Password=yup;Encrypt=True;
-AppInsightsKey=STAGe1036e-2a00-41ae-b219-5f0792011ca2

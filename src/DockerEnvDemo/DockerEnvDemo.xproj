@@ -6,7 +6,7 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>69e73284-739c-4c90-9f25-c139a4d2d00b</ProjectGuid>
+    <ProjectGuid>aeba5a39-a8ef-4b93-967a-e4f2ae65f710</ProjectGuid>
     <RootNamespace>DockerEnvDemo</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">..\..\artifacts\obj\$(MSBuildProjectName)</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">..\..\artifacts\bin\$(MSBuildProjectName)\</OutputPath>
@@ -17,21 +17,7 @@
   <ItemGroup>
     <DnxInvisibleContent Include="bower.json" />
     <DnxInvisibleContent Include=".bowerrc" />
-    <DnxInvisibleContent Include="docker-compose.debug.yml" />
-    <DnxInvisibleContent Include="docker-compose.integration.yml" />
-    <DnxInvisibleContent Include="docker-compose.production.yml" />
-    <DnxInvisibleContent Include="docker-compose.release.yml" />
-    <DnxInvisibleContent Include="docker-compose.staging.yml" />
-    <DnxInvisibleContent Include="Dockerfile.debug" />
-    <DnxInvisibleContent Include="Dockerfile.release" />
-    <DnxInvisibleContent Include="DockerTask.ps1" />
-    <DnxInvisibleContent Include="envDevelopment.list" />
-    <DnxInvisibleContent Include="envIntegration.list" />
-    <DnxInvisibleContent Include="envProduction.list" />
-    <DnxInvisibleContent Include="envStaging.list" />
     <DnxInvisibleContent Include="package.json" />
   </ItemGroup>
-  <Import Project="Properties\Docker.props" />
-  <Import Project="Properties\Docker.targets" />
   <Import Project="$(VSToolsPath)\DNX\Microsoft.DNX.targets" Condition="'$(VSToolsPath)' != ''" />
 </Project>

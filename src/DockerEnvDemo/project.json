@@ -1,9 +1,10 @@
-{
-  "userSecretsId": "aspnet5-DockerEnvDemo-25577c24-47cd-4349-af13-04edbc960ca3",
+﻿{
+  "userSecretsId": "aspnet5-DockerEnvDemo-d5825554-19cf-4778-ac9e-69c8237af6f1",
   "version": "1.0.0-*",
   "compilationOptions": {
     "emitEntryPoint": true
   },
+
   "dependencies": {
     "EntityFramework.Commands": "7.0.0-rc1-final",
     "EntityFramework.MicrosoftSqlServer": "7.0.0-rc1-final",
@@ -17,7 +18,7 @@
     "Microsoft.AspNet.StaticFiles": "1.0.0-rc1-final",
     "Microsoft.AspNet.Tooling.Razor": "1.0.0-rc1-final",
     "Microsoft.Extensions.CodeGenerators.Mvc": "1.0.0-rc1-final",
-    "Microsoft.Extensions.Configuration.FileProviderExtensions": "1.0.0-rc1-final",
+    "Microsoft.Extensions.Configuration.FileProviderExtensions" : "1.0.0-rc1-final",
     "Microsoft.Extensions.Configuration.Json": "1.0.0-rc1-final",
     "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0-rc1-final",
     "Microsoft.Extensions.Logging": "1.0.0-rc1-final",
@@ -25,14 +26,17 @@
     "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-rc1-final"
   },
+
   "commands": {
-    "web": "Microsoft.AspNet.Server.Kestrel --server.urls http://*:5000",
+    "web": "Microsoft.AspNet.Server.Kestrel",
     "ef": "EntityFramework.Commands"
   },
+
   "frameworks": {
-    "dnx451": {},
-    "dnxcore50": {}
+    "dnx451": { },
+    "dnxcore50": { }
   },
+
   "exclude": [
     "wwwroot",
     "node_modules"
@@ -42,11 +46,6 @@
     "**.vspscc"
   ],
   "scripts": {
-    "prepublish": [
-      "npm install",
-      "bower install",
-      "gulp clean",
-      "gulp min"
-    ]
+    "prepublish": [ "npm install", "bower install", "gulp clean", "gulp min" ]
   }
 }

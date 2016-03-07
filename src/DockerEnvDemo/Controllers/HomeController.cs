@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNet.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNet.Mvc;
 using System.Text;
 using System.Collections;
 
@@ -12,7 +12,6 @@ namespace DockerEnvDemo.Controllers
     public class HomeController : Controller
     {
         private IConfiguration _config;
-
         public HomeController(IConfiguration config)
         {
             _config = config;

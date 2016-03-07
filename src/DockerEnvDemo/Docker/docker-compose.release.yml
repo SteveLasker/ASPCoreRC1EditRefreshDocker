@@ -1,7 +1,0 @@
-dockerenvdemo:
-  build: ..
-  dockerfile: Docker/Dockerfile.release
-  ports:
-    - "${DOCKERENVDEMO_PORT}:${DOCKERENVDEMO_PORT}"
-  environment:
-    - SERVER.URLS=http://*:${DOCKERENVDEMO_PORT}

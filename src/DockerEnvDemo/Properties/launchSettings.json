@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:16340/",
+      "applicationUrl": "http://localhost:30651/",
       "sslPort": 0
     }
   },
@@ -20,10 +20,6 @@
       "environmentVariables": {
         "Hosting:Environment": "Development"
       }
-    },
-    "Docker": {
-      "executablePath": "%WINDIR%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-      "commandLineArgs": "-ExecutionPolicy RemoteSigned .\\Docker\\DockerTask.ps1 -Run -Environment $(Configuration) -Machine $(DockerMachineName) -ProjectFolder ."
     }
   }
 }

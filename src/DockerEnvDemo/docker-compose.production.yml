@@ -1,6 +1,0 @@
-dockerenvdemo:
-  container_name: dockerdemo_production
-  image: stevelasker/dockerenvdemo:latest
-  ports:
-    - "80:5000"
-  env_file: envProduction.list
